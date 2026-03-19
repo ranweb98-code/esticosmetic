@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="EstiCosmetic – סלון איפור קבוע ויופי בבית שמש. איפור קבוע לשפתיים וגבות, ציפורניים, קורסי לק ג'ל. אסטי, אמנית מקצועית." />
+  <meta name="keywords" content="איפור קבוע, בית שמש, EstiCosmetic, גבות, שפתיים, לק ג'ל, ציפורניים" />
+  <meta name="theme-color" content="#faf7f2" />
+  <title>EstiCosmetic | אומנות האיפור הקבוע – בית שמש</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💄</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: { DEFAULT: '#faf7f2', dark: '#f0ebe3' },
+            rose: { soft: '#e8d5d0', DEFAULT: '#c9a9a6', deep: '#a67f7a' },
+            gold: { soft: '#e8dcc4', DEFAULT: '#c5a059', deep: '#9a7b3c' },
+          },
+          fontFamily: {
+            display: ['Heebo', 'Assistant', 'system-ui', 'sans-serif'],
+            body: ['Assistant', 'Heebo', 'system-ui', 'sans-serif'],
+          },
+          boxShadow: {
+            luxe: '0 25px 50px -12px rgba(166, 127, 122, 0.25)',
+            card: '0 10px 40px -10px rgba(197, 160, 89, 0.15)',
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Assistant', 'Heebo', system-ui, sans-serif; }
+    .font-display { font-family: 'Heebo', 'Assistant', system-ui, sans-serif; }
+    .hero-bg {
+      background-image: linear-gradient(135deg, rgba(250, 247, 242, 0.92) 0%, rgba(232, 213, 208, 0.85) 50%, rgba(166, 127, 122, 0.35) 100%),
+        url('https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=2000&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+    .gallery-tile {
+      aspect-ratio: 4 / 3;
+    }
+  </style>
+</head>
+<body class="bg-cream text-stone-800 antialiased">
+  <!-- Nav -->
+  <header class="fixed inset-x-0 top-0 z-40 border-b border-rose-soft/50 bg-cream/90 backdrop-blur-md">
+    <nav class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
+      <a href="#top" class="font-display text-lg font-semibold tracking-tight text-rose-deep sm:text-xl">
+        <span class="text-gold-deep">Esti</span>Cosmetic
+      </a>
+      <ul class="hidden items-center gap-6 text-sm font-medium text-stone-600 md:flex">
+        <li><a href="#about" class="transition hover:text-rose-deep">אודות</a></li>
+        <li><a href="#services" class="transition hover:text-rose-deep">שירותים</a></li>
+        <li><a href="#gallery" class="transition hover:text-rose-deep">גלריה</a></li>
+        <li><a href="#courses" class="transition hover:text-rose-deep">קורסים</a></li>
+        <li><a href="#booking" class="transition hover:text-rose-deep">קביעת תור</a></li>
+        <li><a href="#contact" class="transition hover:text-rose-deep">צור קשר</a></li>
+      </ul>
+      <a href="#" data-wa-default class="rounded-full bg-[#25D366] px-4 py-2 text-sm font-semibold text-white shadow-md transition hover:bg-[#20bd5a] hover:shadow-lg md:hidden">
+        <i class="fab fa-whatsapp ms-1" aria-hidden="true"></i>
+        וואטסאפ
+      </a>
+      <button type="button" id="nav-toggle" class="rounded-lg p-2 text-stone-700 md:hidden" aria-label="תפריט">
+        <i class="fas fa-bars text-xl"></i>
+      </button>
+    </nav>
+    <div id="mobile-nav" class="hidden border-t border-rose-soft/40 bg-cream px-4 py-4 md:hidden">
+      <ul class="flex flex-col gap-3 text-stone-700">
+        <li><a href="#about" class="block py-1">אודות</a></li>
+        <li><a href="#services" class="block py-1">שירותים</a></li>
+        <li><a href="#gallery" class="block py-1">גלריה</a></li>
+        <li><a href="#courses" class="block py-1">קורסים</a></li>
+        <li><a href="#booking" class="block py-1">קביעת תור</a></li>
+        <li><a href="#contact" class="block py-1">צור קשר</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero-bg relative flex min-h-[92vh] items-center justify-center px-4 pt-24 pb-16 sm:px-6">
+      <div class="relative z-10 mx-auto max-w-4xl text-center">
+        <p class="mb-3 font-display text-sm font-medium uppercase tracking-[0.2em] text-gold-deep sm:text-base">איסטי קוסמטיק · בית שמש</p>
+        <h1 class="font-display text-4xl font-bold leading-tight text-stone-900 sm:text-5xl md:text-6xl">
+          EstiCosmetic<br />
+          <span class="bg-gradient-to-l from-rose-deep to-gold-deep bg-clip-text text-transparent">אומנות האיפור הקבוע</span>
+        </h1>
+        <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-stone-700 sm:text-xl">
+          ברוכות הבאות לסטודיו שבו יופי, דיוק ושקט נפשי נפגשים. כאן תמצאי ליווי מקצועי, תוצאות טבעיות וחוויה מפנקת מראש ועד הטיפול.
+        </p>
+        <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-5">
+          <a href="#booking" class="inline-flex min-w-[200px] items-center justify-center rounded-full border-2 border-rose-deep bg-rose-deep px-8 py-3.5 font-display text-base font-semibold text-white shadow-luxe transition hover:-translate-y-0.5 hover:bg-rose-deep/90 hover:shadow-xl">
+            קבעי תור עכשיו
+          </a>
+          <a href="#gallery" class="inline-flex min-w-[200px] items-center justify-center rounded-full border-2 border-gold-deep bg-cream/80 px-8 py-3.5 font-display text-base font-semibold text-gold-deep backdrop-blur transition hover:-translate-y-0.5 hover:bg-cream hover:shadow-card">
+            לצפייה בגלריה
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="border-y border-rose-soft/60 bg-white py-20">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
+          <div>
+            <h2 class="font-display text-3xl font-bold text-stone-900 sm:text-4xl">קצת עלינו</h2>
+            <div class="mt-4 h-1 w-20 rounded-full bg-gradient-to-l from-gold to-rose"></div>
+            <p class="mt-8 text-lg leading-relaxed text-stone-700">
+              אצלנו את בידיים הכי טובות. אסטי היא אמנית איפור קבוע עם ניסיון של שנים, ומתמחה בהדגשת היופי הטבעי שלך. הסלון נעים, היגייני ומזמין – בדיוק כמו שאת.
+            </p>
+            <p class="mt-4 text-stone-600">
+              כל טיפול מותאם אישית, עם הקשבה לפרטים הקטנים שעושים את ההבדל – לשפתיים, לגבות ולחיוך שלך.
+            </p>
+          </div>
+          <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-rose-soft to-cream-dark p-10 shadow-card">
+            <i class="fas fa-spa absolute -start-4 -top-4 text-8xl text-rose/20" aria-hidden="true"></i>
+            <blockquote class="relative font-display text-xl font-medium leading-relaxed text-stone-800">
+              המטרה שלי היא שתצאי מרגישה את עצמך – רק יותר בטוחה.
+            </blockquote>
+            <p class="relative mt-6 text-sm font-semibold text-gold-deep">— אסטי, בעלת הסטודיו</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-20">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <h2 class="font-display text-3xl font-bold text-stone-900 sm:text-4xl">השירותים שלנו</h2>
+          <p class="mx-auto mt-4 max-w-2xl text-stone-600">מגוון טיפולים מקצועיים תחת קורת גג אחת – בדיוק בשבילך.</p>
+        </div>
+        <div class="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <article class="group rounded-2xl border border-rose-soft/80 bg-white p-6 shadow-card transition hover:-translate-y-1 hover:border-gold-soft hover:shadow-luxe">
+            <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-rose-soft/80 text-2xl text-rose-deep transition group-hover:bg-gold-soft/50 group-hover:text-gold-deep">
+              <i class="fas fa-pen-fancy" aria-hidden="true"></i>
+            </div>
+            <h3 class="mt-5 font-display text-lg font-bold text-stone-900">איפור קבוע – שפתיים וגבות</h3>
+            <p class="mt-2 text-sm leading-relaxed text-stone-600">הדגשה עדינה וטבעית לקווי שפתיים וגבות, לתוצאה שמרגישה כמו שלך – רק מסודרת יותר.</p>
+            <a href="#" data-wa-service="איפור קבוע – שפתיים וגבות" class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-rose-deep transition hover:text-gold-deep">
+              לפרטים <i class="fas fa-arrow-left text-xs transition group-hover:-translate-x-0.5" aria-hidden="true"></i>
+            </a>
+          </article>
+          <article class="group rounded-2xl border border-rose-soft/80 bg-white p-6 shadow-card transition hover:-translate-y-1 hover:border-gold-soft hover:shadow-luxe">
+            <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-rose-soft/80 text-2xl text-rose-deep transition group-hover:bg-gold-soft/50 group-hover:text-gold-deep">
+              <i class="fas fa-hand-sparkles" aria-hidden="true"></i>
+            </div>
+            <h3 class="mt-5 font-display text-lg font-bold text-stone-900">בנייה באקריל ולק ג'ל</h3>
+            <p class="mt-2 text-sm leading-relaxed text-stone-600">ציפורניים חזקות ועיצובים עדכניים – עמידות, בריאות ומראה מושלם לאורך זמן.</p>
+            <a href="#" data-wa-service="בנייה באקריל ולק ג'ל" class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-rose-deep transition hover:text-gold-deep">
+              לפרטים <i class="fas fa-arrow-left text-xs" aria-hidden="true"></i>
+            </a>
+          </article>
+          <article class="group rounded-2xl border border-rose-soft/80 bg-white p-6 shadow-card transition hover:-translate-y-1 hover:border-gold-soft hover:shadow-luxe">
+            <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-rose-soft/80 text-2xl text-rose-deep transition group-hover:bg-gold-soft/50 group-hover:text-gold-deep">
+              <i class="fas fa-eye" aria-hidden="true"></i>
+            </div>
+            <h3 class="mt-5 font-display text-lg font-bold text-stone-900">עיצוב ושיקום גבות</h3>
+            <p class="mt-2 text-sm leading-relaxed text-stone-600">עיצוב מדויק לפי מבנה הפנים – איזון, צפיפות וקו נקי שמסגיר את המבט.</p>
+            <a href="#" data-wa-service="עיצוב ושיקום גבות" class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-rose-deep transition hover:text-gold-deep">
+              לפרטים <i class="fas fa-arrow-left text-xs" aria-hidden="true"></i>
+            </a>
+          </article>
+          <article class="group rounded-2xl border border-rose-soft/80 bg-white p-6 shadow-card transition hover:-translate-y-1 hover:border-gold-soft hover:shadow-luxe">
+            <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-rose-soft/80 text-2xl text-rose-deep transition group-hover:bg-gold-soft/50 group-hover:text-gold-deep">
+              <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+            </div>
+            <h3 class="mt-5 font-display text-lg font-bold text-stone-900">קורסים מקצועיים ללק ג'ל</h3>
+            <p class="mt-2 text-sm leading-relaxed text-stone-600">הכשרה מעשית למי שרוצה להפוך את התשוקה למקצוע – פרטים במקטע הקורסים.</p>
+            <a href="#" data-wa-service="קורסים מקצועיים ללק ג'ל" class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-rose-deep transition hover:text-gold-deep">
+              לפרטים <i class="fas fa-arrow-left text-xs" aria-hidden="true"></i>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="border-y border-rose-soft/60 bg-cream-dark py-20">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <h2 class="font-display text-3xl font-bold text-stone-900 sm:text-4xl">גלריה – לפני ואחרי</h2>
+          <p class="mx-auto mt-4 max-w-2xl text-stone-600">בקרוב נעלה כאן תמונות אמיתיות מהסטודיו. בינתיים – תצוגה מקדימה.</p>
+        </div>
+        <div class="mt-12 grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6">
+          <div class="gallery-tile flex flex-col items-center justify-center rounded-xl border border-stone-200 bg-stone-200/80 text-stone-500">
+            <i class="fas fa-camera text-3xl opacity-60" aria-hidden="true"></i>
+            <span class="mt-2 text-sm font-medium">לפני ואחרי</span>
+          </div>
+          <div class="gallery-tile flex flex-col items-center justify-center rounded-xl border border-stone-200 bg-stone-200/80 text-stone-500">
+            <i class="fas fa-camera text-3xl opacity-60" aria-hidden="true"></i>
+            <span class="mt-2 text-sm font-medium">לפני ואחרי</span>
+          </div>
+          <div class="gallery-tile flex flex-col items-center justify-center rounded-xl border border-stone-200 bg-stone-200/80 text-stone-500 max-md:col-span-2 md:max-lg:col-span-1">
+            <i class="fas fa-camera text-3xl opacity-60" aria-hidden="true"></i>
+            <span class="mt-2 text-sm font-medium">לפני ואחרי</span>
+          </div>
+          <div class="gallery-tile flex flex-col items-center justify-center rounded-xl border border-stone-200 bg-stone-200/80 text-stone-500">
+            <i class="fas fa-camera text-3xl opacity-60" aria-hidden="true"></i>
+            <span class="mt-2 text-sm font-medium">לפני ואחרי</span>
+          </div>
+          <div class="gallery-tile flex flex-col items-center justify-center rounded-xl border border-stone-200 bg-stone-200/80 text-stone-500">
+            <i class="fas fa-camera text-3xl opacity-60" aria-hidden="true"></i>
+            <span class="mt-2 text-sm font-medium">לפני ואחרי</span>
+          </div>
+          <div class="gallery-tile flex flex-col items-center justify-center rounded-xl border border-stone-200 bg-stone-200/80 text-stone-500 max-md:col-span-2 md:col-span-1">
+            <i class="fas fa-camera text-3xl opacity-60" aria-hidden="true"></i>
+            <span class="mt-2 text-sm font-medium">לפני ואחרי</span>
+          </div>
+        </div>
+        <p class="mt-8 text-center text-sm text-stone-500">התמונות יעודכנו בקרוב – עקבו אחרינו באינסטגרם לעדכונים.</p>
+      </div>
+    </section>
+
+    <!-- Courses -->
+    <section id="courses" class="py-20">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="overflow-hidden rounded-3xl bg-gradient-to-br from-rose-deep via-rose to-gold-soft p-1 shadow-luxe">
+          <div class="rounded-[22px] bg-cream px-6 py-12 sm:px-10 lg:flex lg:items-center lg:gap-12 lg:px-14">
+            <div class="lg:w-1/2">
+              <h2 class="font-display text-3xl font-bold text-stone-900 sm:text-4xl">קורסים מקצועיים ללק ג'ל</h2>
+              <p class="mt-4 text-lg text-stone-700">התחלה נכונה למסלול מקצועי – ליווי צמוד, חומרי עבודה כלולים, וקבוצות קטנות ללמידה איכותית.</p>
+              <ul class="mt-8 space-y-3 text-stone-700">
+                <li class="flex items-start gap-3"><i class="fas fa-check-circle mt-1 text-gold-deep" aria-hidden="true"></i><span>מתאים למתחילות – מהבסיס ועד בניית ביטחון בעבודה.</span></li>
+                <li class="flex items-start gap-3"><i class="fas fa-check-circle mt-1 text-gold-deep" aria-hidden="true"></i><span>קבוצות קטנות לתשומת לב אישית.</span></li>
+                <li class="flex items-start gap-3"><i class="fas fa-check-circle mt-1 text-gold-deep" aria-hidden="true"></i><span>כל החומרים לתרגול כלולים במחיר הקורס.</span></li>
+              </ul>
+              <a href="#" data-wa-courses class="mt-10 inline-flex items-center justify-center rounded-full bg-gold-deep px-8 py-3.5 font-display font-semibold text-white shadow-md transition hover:-translate-y-0.5 hover:bg-gold-deep/90 hover:shadow-lg">
+                לפרטים והרשמה
+              </a>
+            </div>
+            <div class="mt-10 flex justify-center lg:mt-0 lg:w-1/2">
+              <div class="flex h-48 w-48 items-center justify-center rounded-full border-4 border-gold-soft/80 bg-white shadow-card sm:h-56 sm:w-56">
+                <i class="fas fa-paintbrush text-6xl text-gold-deep sm:text-7xl" aria-hidden="true"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Booking -->
+    <section id="booking" class="border-y border-rose-soft/60 bg-white py-20">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <h2 class="font-display text-3xl font-bold text-stone-900 sm:text-4xl">קביעת תור</h2>
+          <p class="mx-auto mt-4 max-w-2xl text-stone-600">נשמח לתאם לך מועד נוח. ניתן לשלוח הודעה בוואטסאפ או למלא את הטופס – ונחזור אליך בהקדם.</p>
+        </div>
+
+        <div class="mt-12 grid gap-10 lg:grid-cols-2">
+          <div class="rounded-2xl border border-dashed border-gold-soft bg-cream p-8 text-center shadow-inner">
+            <i class="fas fa-calendar-check text-4xl text-gold-deep" aria-hidden="true"></i>
+            <h3 class="mt-4 font-display text-xl font-bold text-stone-900">קביעת תור אונליין</h3>
+            <p class="mt-2 text-sm text-stone-600">בקרוב: אינטגרציה עם מערכת קביעת תורים. בינתיים ניתן להשתמש בדף הדגמה או לשלוח הודעה.</p>
+            <a href="https://calendly.com/demo" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center justify-center rounded-full border-2 border-gold-deep bg-transparent px-6 py-3 font-display text-sm font-semibold text-gold-deep transition hover:bg-gold-deep hover:text-white">
+              לחצי כאן לקביעת תור אונליין
+            </a>
+          </div>
+
+          <div class="rounded-2xl border border-rose-soft/80 bg-cream p-8 shadow-card">
+            <h3 class="font-display text-xl font-bold text-stone-900">שליחה מהירה בוואטסאפ</h3>
+            <p class="mt-2 text-sm text-stone-600">מלאי את הפרטים – ההודעה תיפתח בוואטסאפ עם כל המידע.</p>
+            <form id="booking-form" class="mt-6 space-y-4">
+              <div>
+                <label for="bf-name" class="block text-sm font-medium text-stone-700">שם מלא</label>
+                <input type="text" id="bf-name" name="name" required class="mt-1 w-full rounded-xl border border-stone-200 bg-white px-4 py-2.5 text-stone-900 outline-none ring-gold-soft/50 transition focus:border-gold-deep focus:ring-2" autocomplete="name" />
+              </div>
+              <div>
+                <label for="bf-phone" class="block text-sm font-medium text-stone-700">טלפון</label>
+                <input type="tel" id="bf-phone" name="phone" required class="mt-1 w-full rounded-xl border border-stone-200 bg-white px-4 py-2.5 text-stone-900 outline-none transition focus:border-gold-deep focus:ring-2 focus:ring-gold-soft/50" autocomplete="tel" placeholder="05X-XXXXXXX" />
+              </div>
+              <div>
+                <label for="bf-service" class="block text-sm font-medium text-stone-700">שירות מבוקש</label>
+                <select id="bf-service" name="service" class="mt-1 w-full rounded-xl border border-stone-200 bg-white px-4 py-2.5 text-stone-900 outline-none transition focus:border-gold-deep focus:ring-2 focus:ring-gold-soft/50">
+                  <option value="איפור קבוע">איפור קבוע – שפתיים וגבות</option>
+                  <option value="אקריל ולק ג'ל">בנייה באקריל ולק ג'ל</option>
+                  <option value="עיצוב גבות">עיצוב ושיקום גבות</option>
+                  <option value="ייעוץ / אחר">ייעוץ / אחר</option>
+                </select>
+              </div>
+              <div>
+                <label for="bf-date" class="block text-sm font-medium text-stone-700">תאריך מועדף</label>
+                <input type="text" id="bf-date" name="date" class="mt-1 w-full rounded-xl border border-stone-200 bg-white px-4 py-2.5 text-stone-900 outline-none transition focus:border-gold-deep focus:ring-2 focus:ring-gold-soft/50" placeholder="למשל: יום חמישי הבא" />
+              </div>
+              <button type="submit" class="w-full rounded-full bg-[#25D366] py-3.5 font-display font-semibold text-white shadow-md transition hover:bg-[#20bd5a] hover:shadow-lg">
+                <i class="fab fa-whatsapp ms-2" aria-hidden="true"></i>
+                שלחי בוואטסאפ
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div class="mt-10 text-center">
+          <a href="#" data-wa-default class="inline-flex items-center gap-2 rounded-full border-2 border-rose-deep px-6 py-3 font-display font-semibold text-rose-deep transition hover:bg-rose-deep hover:text-white">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            קבעי תור בוואטסאפ
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="bg-gradient-to-b from-cream to-cream-dark py-20">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <h2 class="text-center font-display text-3xl font-bold text-stone-900 sm:text-4xl">צור קשר</h2>
+        <div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <a href="https://www.google.com/maps/search/?api=1&query=Rabbi+Yanai+St+3,+Beit+Shemesh,+Israel" target="_blank" rel="noopener noreferrer" class="group flex flex-col items-center rounded-2xl border border-rose-soft/80 bg-white p-6 text-center shadow-card transition hover:-translate-y-1 hover:shadow-luxe">
+            <span class="flex h-12 w-12 items-center justify-center rounded-full bg-rose-soft/80 text-xl text-rose-deep group-hover:bg-gold-soft/50 group-hover:text-gold-deep"><i class="fas fa-location-dot" aria-hidden="true"></i></span>
+            <span class="mt-3 font-semibold text-stone-900">כתובת</span>
+            <span class="mt-1 text-sm text-stone-600">רבי ינאי 3, בית שמש</span>
+            <span class="mt-2 text-xs font-medium text-gold-deep">פתיחה במפות גוגל</span>
+          </a>
+          <a href="tel:+972523484734" class="group flex flex-col items-center rounded-2xl border border-rose-soft/80 bg-white p-6 text-center shadow-card transition hover:-translate-y-1 hover:shadow-luxe">
+            <span class="flex h-12 w-12 items-center justify-center rounded-full bg-rose-soft/80 text-xl text-rose-deep group-hover:bg-gold-soft/50 group-hover:text-gold-deep"><i class="fas fa-phone" aria-hidden="true"></i></span>
+            <span class="mt-3 font-semibold text-stone-900">טלפון</span>
+            <span class="mt-1 text-sm text-stone-600" dir="ltr">052-3484734</span>
+          </a>
+          <a href="https://www.instagram.com/esticosmetic/" target="_blank" rel="noopener noreferrer" class="group flex flex-col items-center rounded-2xl border border-rose-soft/80 bg-white p-6 text-center shadow-card transition hover:-translate-y-1 hover:shadow-luxe">
+            <span class="flex h-12 w-12 items-center justify-center rounded-full bg-rose-soft/80 text-xl text-rose-deep group-hover:bg-gold-soft/50 group-hover:text-gold-deep"><i class="fab fa-instagram" aria-hidden="true"></i></span>
+            <span class="mt-3 font-semibold text-stone-900">אינסטגרם</span>
+            <span class="mt-1 text-sm text-stone-600">@esticosmetic</span>
+          </a>
+          <div class="flex flex-col items-center rounded-2xl border border-rose-soft/80 bg-white p-6 text-center shadow-card">
+            <span class="flex h-12 w-12 items-center justify-center rounded-full bg-rose-soft/80 text-xl text-rose-deep"><i class="fas fa-clock" aria-hidden="true"></i></span>
+            <span class="mt-3 font-semibold text-stone-900">שעות פעילות</span>
+            <p class="mt-1 text-sm text-stone-600">סגור כעת</p>
+            <p class="mt-1 text-sm font-medium text-gold-deep">נפתח ביום שישי ב־10:00</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-rose-soft/60 bg-stone-900 py-10 text-center text-stone-400">
+    <p class="font-display text-sm text-stone-300">© <span id="y"></span> EstiCosmetic · איסטי קוסמטיק</p>
+    <p class="mt-2 text-xs">רבי ינאי 3, בית שמש · <a href="https://www.google.com/maps/search/?api=1&query=Rabbi+Yanai+St+3,+Beit+Shemesh,+Israel" class="underline hover:text-white" target="_blank" rel="noopener">מפה</a></p>
+  </footer>
+
+  <!-- Floating WhatsApp -->
+  <a href="#" id="fab-wa" data-wa-default class="fixed bottom-6 end-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-2xl text-white shadow-lg transition hover:scale-110 hover:bg-[#20bd5a] hover:shadow-xl" title="שלחי הודעה בוואטסאפ" aria-label="וואטסאפ">
+    <i class="fab fa-whatsapp" aria-hidden="true"></i>
+  </a>
+
+  <script>
+    (function () {
+      var PHONE = '972523484734';
+      var MSG_DEFAULT = 'היי אסטי, הגעתי מאתר האינטרנט שלך ורוצה לתאם תור.';
+      var MSG_SERVICE_PREFIX = 'היי אסטי, אשמח לקבל פרטים על ';
+      var MSG_COURSES = 'היי אסטי, הגעתי מהאתר ואשמח לפרטים על קורס לק ג\'ל והרשמה.';
+
+      function waUrl(text) {
+        return 'https://wa.me/' + PHONE + '?text=' + encodeURIComponent(text);
+      }
+
+      function bindWaLinks() {
+        document.querySelectorAll('[data-wa-default]').forEach(function (el) {
+          el.setAttribute('href', waUrl(MSG_DEFAULT));
+        });
+        document.querySelectorAll('[data-wa-service]').forEach(function (el) {
+          var name = el.getAttribute('data-wa-service') || '';
+          el.setAttribute('href', waUrl(MSG_SERVICE_PREFIX + name));
+        });
+        var courses = document.querySelector('[data-wa-courses]');
+        if (courses) courses.setAttribute('href', waUrl(MSG_COURSES));
+      }
+
+      document.getElementById('booking-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        var name = (document.getElementById('bf-name').value || '').trim();
+        var phone = (document.getElementById('bf-phone').value || '').trim();
+        var service = document.getElementById('bf-service').value || '';
+        var date = (document.getElementById('bf-date').value || '').trim();
+        var lines = [
+          'היי אסטי, שלחתי פנייה מהאתר לקביעת תור.',
+          'שם: ' + name,
+          'טלפון: ' + phone,
+          'שירות: ' + service
+        ];
+        if (date) lines.push('תאריך מועדף: ' + date);
+        window.open(waUrl(lines.join('\n')), '_blank', 'noopener,noreferrer');
+      });
+
+      document.getElementById('nav-toggle').addEventListener('click', function () {
+        document.getElementById('mobile-nav').classList.toggle('hidden');
+      });
+
+      document.querySelectorAll('#mobile-nav a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          document.getElementById('mobile-nav').classList.add('hidden');
+        });
+      });
+
+      document.getElementById('y').textContent = new Date().getFullYear();
+      bindWaLinks();
+    })();
+  </script>
+</body>
+</html>
