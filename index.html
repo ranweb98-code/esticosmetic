@@ -10,7 +10,7 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💄</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -23,8 +23,8 @@
             gold: { soft: '#e8dcc4', DEFAULT: '#c5a059', deep: '#9a7b3c' },
           },
           fontFamily: {
-            display: ['Heebo', 'Assistant', 'system-ui', 'sans-serif'],
-            body: ['Assistant', 'Heebo', 'system-ui', 'sans-serif'],
+            sans: ['Montserrat', 'Heebo', 'system-ui', 'sans-serif'],
+            display: ['Montserrat', 'Heebo', 'system-ui', 'sans-serif'],
           },
           boxShadow: {
             luxe: '0 25px 50px -12px rgba(166, 127, 122, 0.25)',
@@ -36,43 +36,107 @@
   </script>
   <style>
     html { scroll-behavior: smooth; }
-    body { font-family: 'Assistant', 'Heebo', system-ui, sans-serif; }
-    .font-display { font-family: 'Heebo', 'Assistant', system-ui, sans-serif; }
+    body {
+      font-family: 'Montserrat', 'Heebo', system-ui, sans-serif;
+    }
+    .font-display {
+      font-family: 'Montserrat', 'Heebo', system-ui, sans-serif;
+    }
+
+    /* HERO_IMAGE_URL — החליפי את שם הקובץ ב-url() (באותה תיקייה כמו index.html) */
     .hero-bg {
+      background-color: #f5ebe6;
       background-image: linear-gradient(135deg, rgba(250, 247, 242, 0.92) 0%, rgba(232, 213, 208, 0.85) 50%, rgba(166, 127, 122, 0.35) 100%),
-        url('https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=2000&q=80');
+        url('hero.jpg');
       background-size: cover;
       background-position: center;
     }
-    .gallery-tile {
-      aspect-ratio: 4 / 3;
+
+    @keyframes heroFadeUp {
+      from {
+        opacity: 0;
+        transform: translate3d(0, 26px, 0);
+      }
+      to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+    }
+    .hero-reveal {
+      opacity: 0;
+      animation: heroFadeUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+    .hero-delay-1 { animation-delay: 0.1s; }
+    .hero-delay-2 { animation-delay: 0.22s; }
+    .hero-delay-3 { animation-delay: 0.34s; }
+    .hero-delay-4 { animation-delay: 0.46s; }
+
+    /* Header: שקוף מעל ההירו, מוצק אחרי גלילה */
+    .site-header {
+      transition: background-color 0.35s ease, border-color 0.35s ease, backdrop-filter 0.35s ease, box-shadow 0.35s ease;
+    }
+    .site-header.is-scrolled {
+      background-color: rgba(250, 247, 242, 0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom-color: rgba(232, 213, 208, 0.75) !important;
+      box-shadow: 0 4px 20px -6px rgba(0, 0, 0, 0.06);
+    }
+    .site-header .header-brand {
+      color: #ffffff;
+    }
+    .site-header .header-brand-accent {
+      color: #e8dcc4;
+    }
+    .site-header .header-link {
+      color: rgba(255, 255, 255, 0.95);
+    }
+    .site-header .header-link:hover {
+      color: #ffffff;
+    }
+    .site-header .header-menu-btn {
+      color: #ffffff;
+    }
+    .site-header.is-scrolled .header-brand {
+      color: #a67f7a;
+    }
+    .site-header.is-scrolled .header-brand-accent {
+      color: #9a7b3c;
+    }
+    .site-header.is-scrolled .header-link {
+      color: #57534e;
+    }
+    .site-header.is-scrolled .header-link:hover {
+      color: #a67f7a;
+    }
+    .site-header.is-scrolled .header-menu-btn {
+      color: #44403c;
     }
   </style>
 </head>
 <body class="bg-cream text-stone-800 antialiased">
-  <!-- Nav -->
-  <header class="fixed inset-x-0 top-0 z-40 border-b border-rose-soft/50 bg-cream/90 backdrop-blur-md">
+  <header id="site-header" class="site-header fixed inset-x-0 top-0 z-50 border-b border-white/20 bg-transparent">
     <nav class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
-      <a href="#top" class="font-display text-lg font-semibold tracking-tight text-rose-deep sm:text-xl">
-        <span class="text-gold-deep">Esti</span>Cosmetic
+      <a href="#top" class="header-brand font-display text-lg font-semibold tracking-tight transition-colors sm:text-xl">
+        <span class="header-brand-accent">Esti</span>Cosmetic
       </a>
-      <ul class="hidden items-center gap-6 text-sm font-medium text-stone-600 md:flex">
-        <li><a href="#about" class="transition hover:text-rose-deep">אודות</a></li>
-        <li><a href="#services" class="transition hover:text-rose-deep">שירותים</a></li>
-        <li><a href="#gallery" class="transition hover:text-rose-deep">גלריה</a></li>
-        <li><a href="#courses" class="transition hover:text-rose-deep">קורסים</a></li>
-        <li><a href="#booking" class="transition hover:text-rose-deep">קביעת תור</a></li>
-        <li><a href="#contact" class="transition hover:text-rose-deep">צור קשר</a></li>
+      <ul class="hidden items-center gap-6 text-sm font-medium md:flex">
+        <li><a href="#about" class="header-link transition-colors">אודות</a></li>
+        <li><a href="#services" class="header-link transition-colors">שירותים</a></li>
+        <li><a href="#gallery" class="header-link transition-colors">גלריה</a></li>
+        <li><a href="#courses" class="header-link transition-colors">קורסים</a></li>
+        <li><a href="#booking" class="header-link transition-colors">קביעת תור</a></li>
+        <li><a href="#contact" class="header-link transition-colors">צור קשר</a></li>
       </ul>
       <a href="#" data-wa-default class="rounded-full bg-[#25D366] px-4 py-2 text-sm font-semibold text-white shadow-md transition hover:bg-[#20bd5a] hover:shadow-lg md:hidden">
         <i class="fab fa-whatsapp ms-1" aria-hidden="true"></i>
         וואטסאפ
       </a>
-      <button type="button" id="nav-toggle" class="rounded-lg p-2 text-stone-700 md:hidden" aria-label="תפריט">
+      <button type="button" id="nav-toggle" class="header-menu-btn rounded-lg p-2 transition-colors md:hidden" aria-label="תפריט">
         <i class="fas fa-bars text-xl"></i>
       </button>
     </nav>
-    <div id="mobile-nav" class="hidden border-t border-rose-soft/40 bg-cream px-4 py-4 md:hidden">
+    <div id="mobile-nav" class="hidden border-t border-rose-soft/40 bg-cream/98 px-4 py-4 backdrop-blur-sm md:hidden">
       <ul class="flex flex-col gap-3 text-stone-700">
         <li><a href="#about" class="block py-1">אודות</a></li>
         <li><a href="#services" class="block py-1">שירותים</a></li>
@@ -85,18 +149,18 @@
   </header>
 
   <main id="top">
-    <!-- Hero -->
+    <!-- HERO_IMAGE_URL -->
     <section class="hero-bg relative flex min-h-[92vh] items-center justify-center px-4 pt-24 pb-16 sm:px-6">
       <div class="relative z-10 mx-auto max-w-4xl text-center">
-        <p class="mb-3 font-display text-sm font-medium uppercase tracking-[0.2em] text-gold-deep sm:text-base">איסטי קוסמטיק · בית שמש</p>
-        <h1 class="font-display text-4xl font-bold leading-tight text-stone-900 sm:text-5xl md:text-6xl">
+        <p class="hero-reveal hero-delay-1 mb-3 font-display text-sm font-medium uppercase tracking-[0.2em] text-gold-deep sm:text-base">איסטי קוסמטיק · בית שמש</p>
+        <h1 class="hero-reveal hero-delay-2 font-display text-4xl font-bold leading-tight text-stone-900 sm:text-5xl md:text-6xl">
           EstiCosmetic<br />
           <span class="bg-gradient-to-l from-rose-deep to-gold-deep bg-clip-text text-transparent">אומנות האיפור הקבוע</span>
         </h1>
-        <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-stone-700 sm:text-xl">
+        <p class="hero-reveal hero-delay-3 mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-stone-700 sm:text-xl">
           ברוכות הבאות לסטודיו שבו יופי, דיוק ושקט נפשי נפגשים. כאן תמצאי ליווי מקצועי, תוצאות טבעיות וחוויה מפנקת מראש ועד הטיפול.
         </p>
-        <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-5">
+        <div class="hero-reveal hero-delay-4 mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-5">
           <a href="#booking" class="inline-flex min-w-[200px] items-center justify-center rounded-full border-2 border-rose-deep bg-rose-deep px-8 py-3.5 font-display text-base font-semibold text-white shadow-luxe transition hover:-translate-y-0.5 hover:bg-rose-deep/90 hover:shadow-xl">
             קבעי תור עכשיו
           </a>
@@ -107,7 +171,6 @@
       </div>
     </section>
 
-    <!-- About -->
     <section id="about" class="border-y border-rose-soft/60 bg-white py-20">
       <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
@@ -132,7 +195,6 @@
       </div>
     </section>
 
-    <!-- Services -->
     <section id="services" class="py-20">
       <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div class="text-center">
@@ -184,44 +246,29 @@
       </div>
     </section>
 
-    <!-- Gallery -->
     <section id="gallery" class="border-y border-rose-soft/60 bg-cream-dark py-20">
       <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div class="text-center">
-          <h2 class="font-display text-3xl font-bold text-stone-900 sm:text-4xl">גלריה – לפני ואחרי</h2>
-          <p class="mx-auto mt-4 max-w-2xl text-stone-600">בקרוב נעלה כאן תמונות אמיתיות מהסטודיו. בינתיים – תצוגה מקדימה.</p>
+          <h2 class="font-display text-3xl font-bold text-stone-900 sm:text-4xl">הגלריה שלנו</h2>
+          <p class="mx-auto mt-4 max-w-2xl text-stone-600">מבחר עבודות מהסטודיו</p>
         </div>
-        <div class="mt-12 grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6">
-          <div class="gallery-tile flex flex-col items-center justify-center rounded-xl border border-stone-200 bg-stone-200/80 text-stone-500">
-            <i class="fas fa-camera text-3xl opacity-60" aria-hidden="true"></i>
-            <span class="mt-2 text-sm font-medium">לפני ואחרי</span>
+        <div class="mt-14 flex flex-col items-center justify-center gap-10 md:flex-row md:justify-center md:gap-12 lg:gap-14">
+          <div class="relative h-64 w-64 shrink-0 overflow-hidden rounded-2xl bg-stone-200 shadow-card ring-1 ring-stone-900/5" data-slideshow aria-label="גבות">
+            <img src="b0.jpg" alt="" class="absolute inset-0 h-full w-full object-cover opacity-100 transition-opacity duration-700 ease-in-out" data-slide="0" />
+            <img src="b1.jpg" alt="" class="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-700 ease-in-out" data-slide="1" />
           </div>
-          <div class="gallery-tile flex flex-col items-center justify-center rounded-xl border border-stone-200 bg-stone-200/80 text-stone-500">
-            <i class="fas fa-camera text-3xl opacity-60" aria-hidden="true"></i>
-            <span class="mt-2 text-sm font-medium">לפני ואחרי</span>
+          <div class="relative h-64 w-64 shrink-0 overflow-hidden rounded-2xl bg-stone-200 shadow-card ring-1 ring-stone-900/5" data-slideshow aria-label="שפתיים">
+            <img src="lip0.jpg" alt="" class="absolute inset-0 h-full w-full object-cover opacity-100 transition-opacity duration-700 ease-in-out" data-slide="0" />
+            <img src="lip1.jpg" alt="" class="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-700 ease-in-out" data-slide="1" />
           </div>
-          <div class="gallery-tile flex flex-col items-center justify-center rounded-xl border border-stone-200 bg-stone-200/80 text-stone-500 max-md:col-span-2 md:max-lg:col-span-1">
-            <i class="fas fa-camera text-3xl opacity-60" aria-hidden="true"></i>
-            <span class="mt-2 text-sm font-medium">לפני ואחרי</span>
-          </div>
-          <div class="gallery-tile flex flex-col items-center justify-center rounded-xl border border-stone-200 bg-stone-200/80 text-stone-500">
-            <i class="fas fa-camera text-3xl opacity-60" aria-hidden="true"></i>
-            <span class="mt-2 text-sm font-medium">לפני ואחרי</span>
-          </div>
-          <div class="gallery-tile flex flex-col items-center justify-center rounded-xl border border-stone-200 bg-stone-200/80 text-stone-500">
-            <i class="fas fa-camera text-3xl opacity-60" aria-hidden="true"></i>
-            <span class="mt-2 text-sm font-medium">לפני ואחרי</span>
-          </div>
-          <div class="gallery-tile flex flex-col items-center justify-center rounded-xl border border-stone-200 bg-stone-200/80 text-stone-500 max-md:col-span-2 md:col-span-1">
-            <i class="fas fa-camera text-3xl opacity-60" aria-hidden="true"></i>
-            <span class="mt-2 text-sm font-medium">לפני ואחרי</span>
+          <div class="relative h-64 w-64 shrink-0 overflow-hidden rounded-2xl bg-stone-200 shadow-card ring-1 ring-stone-900/5" data-slideshow aria-label="ציפורניים">
+            <img src="nail11.jpg" alt="" class="absolute inset-0 h-full w-full object-cover opacity-100 transition-opacity duration-700 ease-in-out" data-slide="0" />
+            <img src="nail12.jpg" alt="" class="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-700 ease-in-out" data-slide="1" />
           </div>
         </div>
-        <p class="mt-8 text-center text-sm text-stone-500">התמונות יעודכנו בקרוב – עקבו אחרינו באינסטגרם לעדכונים.</p>
       </div>
     </section>
 
-    <!-- Courses -->
     <section id="courses" class="py-20">
       <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div class="overflow-hidden rounded-3xl bg-gradient-to-br from-rose-deep via-rose to-gold-soft p-1 shadow-luxe">
@@ -248,7 +295,6 @@
       </div>
     </section>
 
-    <!-- Booking -->
     <section id="booking" class="border-y border-rose-soft/60 bg-white py-20">
       <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div class="text-center">
@@ -257,13 +303,24 @@
         </div>
 
         <div class="mt-12 grid gap-10 lg:grid-cols-2">
-          <div class="rounded-2xl border border-dashed border-gold-soft bg-cream p-8 text-center shadow-inner">
+          <div class="rounded-2xl border border-dashed border-gold-soft bg-cream p-6 text-center shadow-inner sm:p-8">
             <i class="fas fa-calendar-check text-4xl text-gold-deep" aria-hidden="true"></i>
             <h3 class="mt-4 font-display text-xl font-bold text-stone-900">קביעת תור אונליין</h3>
-            <p class="mt-2 text-sm text-stone-600">בקרוב: אינטגרציה עם מערכת קביעת תורים. בינתיים ניתן להשתמש בדף הדגמה או לשלוח הודעה.</p>
-            <a href="https://calendly.com/demo" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center justify-center rounded-full border-2 border-gold-deep bg-transparent px-6 py-3 font-display text-sm font-semibold text-gold-deep transition hover:bg-gold-deep hover:text-white">
-              לחצי כאן לקביעת תור אונליין
-            </a>
+            <p class="mt-2 text-sm leading-relaxed text-stone-600">
+              לחצי על הכפתור לפתיחת חלון קביעת התורים — בוחרים שירות ושעה נוחה (SetMore).
+            </p>
+            <script id="anywhere_book_now_script" type="text/javascript" src="https://assets.setmore.com/integration/book-now/live/v1/anywhere-book-now.js"></script>
+            <div class="mt-8 flex justify-center">
+              <button
+                type="button"
+                id="Anywhere_button_iframe"
+                class="anywhere-book-now-button font-display bg-amber-300 text-stone-900 px-8 py-4 rounded-full text-lg font-semibold hover:bg-amber-400 transition"
+                data-booking-url="https://ran846p.setmore.com"
+                data-new-tab="false"
+              >
+                קבעי תור עכשיו
+              </button>
+            </div>
           </div>
 
           <div class="rounded-2xl border border-rose-soft/80 bg-cream p-8 shadow-card">
@@ -308,7 +365,6 @@
       </div>
     </section>
 
-    <!-- Contact -->
     <section id="contact" class="bg-gradient-to-b from-cream to-cream-dark py-20">
       <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <h2 class="text-center font-display text-3xl font-bold text-stone-900 sm:text-4xl">צור קשר</h2>
@@ -345,8 +401,7 @@
     <p class="mt-2 text-xs">רבי ינאי 3, בית שמש · <a href="https://www.google.com/maps/search/?api=1&query=Rabbi+Yanai+St+3,+Beit+Shemesh,+Israel" class="underline hover:text-white" target="_blank" rel="noopener">מפה</a></p>
   </footer>
 
-  <!-- Floating WhatsApp -->
-  <a href="#" id="fab-wa" data-wa-default class="fixed bottom-6 end-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-2xl text-white shadow-lg transition hover:scale-110 hover:bg-[#20bd5a] hover:shadow-xl" title="שלחי הודעה בוואטסאפ" aria-label="וואטסאפ">
+  <a href="#" id="fab-wa" data-wa-default class="fixed bottom-6 end-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-2xl text-white shadow-lg transition hover:scale-110 hover:bg-[#20bd5a] hover:shadow-xl" title="שלחי הודעה בוואטסאפ" aria-label="שלחי הודעה בוואטסאפ">
     <i class="fab fa-whatsapp" aria-hidden="true"></i>
   </a>
 
@@ -372,6 +427,31 @@
         var courses = document.querySelector('[data-wa-courses]');
         if (courses) courses.setAttribute('href', waUrl(MSG_COURSES));
       }
+
+      document.querySelectorAll('[data-slideshow]').forEach(function (box) {
+        var slides = box.querySelectorAll('[data-slide]');
+        if (slides.length < 2) return;
+        var index = 0;
+        var paused = false;
+        function show(i) {
+          slides.forEach(function (img, j) {
+            if (j === i) {
+              img.classList.add('opacity-100');
+              img.classList.remove('opacity-0');
+            } else {
+              img.classList.remove('opacity-100');
+              img.classList.add('opacity-0');
+            }
+          });
+        }
+        setInterval(function () {
+          if (paused) return;
+          index = (index + 1) % slides.length;
+          show(index);
+        }, 3000);
+        box.addEventListener('mouseenter', function () { paused = true; });
+        box.addEventListener('mouseleave', function () { paused = false; });
+      });
 
       document.getElementById('booking-form').addEventListener('submit', function (e) {
         e.preventDefault();
@@ -401,6 +481,19 @@
 
       document.getElementById('y').textContent = new Date().getFullYear();
       bindWaLinks();
+
+      var siteHeader = document.getElementById('site-header');
+      var scrollThreshold = 56;
+      function updateHeaderScroll() {
+        if (!siteHeader) return;
+        if (window.scrollY > scrollThreshold) {
+          siteHeader.classList.add('is-scrolled');
+        } else {
+          siteHeader.classList.remove('is-scrolled');
+        }
+      }
+      window.addEventListener('scroll', updateHeaderScroll, { passive: true });
+      updateHeaderScroll();
     })();
   </script>
 </body>
